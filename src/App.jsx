@@ -1,12 +1,14 @@
 
 import Navbar from "./components/Navbar";
-
+import Header from "./components/Header";
+import About from "./components/About";
 
 function App() {
   return (
     <>
       <Navbar />
-      <h1>Hello World</h1>
+      <Header />
+      <About />
     </>
   );
 }
