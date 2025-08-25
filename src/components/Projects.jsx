@@ -1,78 +1,83 @@
-import { section } from "framer-motion/client";
+import { useState } from "react";
 
 function Projects() {
+  const [current, setCurrent] = useState(0); // track the active slide
+
+  // Example: 3 cards (could map from an array instead)
+  const projects = [1, 2, 3];
+
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % projects.length);
+  };
+
+  const prevSlide = () => {
+    setCurrent((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+  };
+
   return (
     <div
-      className="bg-gray-900 px-2 mx-0 py-5 text-center grid grid-cols-1 md:grid-cols-3 gap-8"
+      className="relative bg-gray-900 py-10"
       style={{ backgroundColor: "#635e5e" }}
     >
-      <div className="bg-transparent transition-transform duration-800 hover:[rotateY(180deg)]">
-        <div className="perspective-1000 bg-black text-center py-15 mx-auto flex justify-center w-80 h-80 transform-3d border-2 rounded-lg shadow-md duration-300 transition-transform duration-800 hover:[transform:rotateY(180deg)]">
-          <div className="absolute top-1 bottom-1 left-1 right-1 w-full rounded-lg bg-white backface-hidden flip-card-front">
-            <h1> Project Title </h1>
-            <h2>John Doe </h2>
-            <p>Short description: A brief overview of the project.</p>
-            <p>Tech Stack: React, Node.js, Express</p>
-            <p>Links: [GitHub](#) | [Live Demo](#)</p>
-          </div>
-          <div className="absolute top-1 bottom-1 right-1 left-0 w-full rounded-lg bg-red-500 backface-hidden rotate-y-180 flip-card-back">
-            <p>John Doe</p>
-            <p>
-              The problem: "Description of the problem the project aims to
-              solve."
-            </p>
-            <p>Your solution: "Description of your solution to the problem."</p>
-            <p>
-              Outcome: "Description of the outcome or result of your solution."
-            </p>
-          </div>
+      {/* Carousel container */}
+      <div className="overflow-hidden max-w-3xl mx-auto">
+        {/* Track */}
+        <div
+          className="flex transition-transform duration-700"
+          style={{
+            transform: `translateX(-${current * 100}%)`,
+          }}
+        >
+          {projects.map((_, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-full flex justify-center"
+            >
+              {/* Flip Card */}
+              <div className="relative perspective-1000 w-80 h-80">
+                <div className="absolute inset-0 border-2 rounded-lg shadow-md transition-transform duration-700 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]">
+                  {/* Front */}
+                  <div className="absolute inset-0 bg-white backface-hidden rounded-lg p-4">
+                    <h1>Project {index + 1}</h1>
+                    <h2>John Doe</h2>
+                    <p>Short description: A brief overview of the project.</p>
+                    <p>Tech Stack: React, Node.js, Express</p>
+                    <p>Links: [GitHub](#) | [Live Demo](#)</p>
+                  </div>
+                  {/* Back */}
+                  <div className="absolute inset-0 bg-red-500 backface-hidden rotate-y-180 rounded-lg p-4 text-white">
+                    <p>John Doe</p>
+                    <p>
+                      The problem: "Description of the problem the project aims
+                      to solve."
+                    </p>
+                    <p>Your solution: "Description of your solution."</p>
+                    <p>Outcome: "Result of your solution."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-      <div className="bg-transparent transition-transform duration-800 hover:[rotateY(180deg)]">
-        <div className="perspective-1000 bg-black text-center py-15 mx-auto flex justify-center w-80 h-80 transform-3d border-2 rounded-lg shadow-md duration-300 transition-transform duration-800 hover:[transform:rotateY(180deg)]">
-          <div className="absolute top-1 bottom-1 left-1 right-1 w-full rounded-lg bg-white backface-hidden flip-card-front">
-            <h1> Project Title </h1>
-            <h2>John Doe </h2>
-            <p>Short description: A brief overview of the project.</p>
-            <p>Tech Stack: React, Node.js, Express</p>
-            <p>Links: [GitHub](#) | [Live Demo](#)</p>
-          </div>
-          <div className="absolute top-1 bottom-1 right-1 left-0 w-full rounded-lg bg-red-500 backface-hidden rotate-y-180 flip-card-back">
-            <p>John Doe</p>
-            <p>
-              The problem: "Description of the problem the project aims to
-              solve."
-            </p>
-            <p>Your solution: "Description of your solution to the problem."</p>
-            <p>
-              Outcome: "Description of the outcome or result of your solution."
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="bg-transparent transition-transform duration-800 hover:[rotateY(180deg)]">
-        <div className="perspective-1000 bg-black text-center py-15 mx-auto flex justify-center w-80 h-80 transform-3d border-2 rounded-lg shadow-md duration-300 transition-transform duration-800 hover:[transform:rotateY(180deg)]">
-          <div className="absolute top-1 bottom-1 left-1 right-1 w-full rounded-lg bg-white backface-hidden flip-card-front">
-            <h1> Project Title </h1>
-            <h2>John Doe </h2>
-            <p>Short description: A brief overview of the project.</p>
-            <p>Tech Stack: React, Node.js, Express</p>
-            <p>Links: [GitHub](#) | [Live Demo](#)</p>
-          </div>
-          <div className="absolute top-1 bottom-1 right-1 left-0 w-full rounded-lg bg-red-500 backface-hidden rotate-y-180 flip-card-back">
-            <p>John Doe</p>
-            <p>
-              The problem: "Description of the problem the project aims to
-              solve."
-            </p>
-            <p>Your solution: "Description of your solution to the problem."</p>
-            <p>
-              Outcome: "Description of the outcome or result of your solution."
-            </p>
-          </div>
-        </div>
+
+      {/* Navigation buttons */}
+      <div className="flex justify-between max-w-3xl mx-auto mt-6">
+        <button
+          onClick={prevSlide}
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+        >
+          Prev
+        </button>
+        <button
+          onClick={nextSlide}
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+        >
+          Next
+        </button>
       </div>
     </div>
   );
 }
+
 export default Projects;
