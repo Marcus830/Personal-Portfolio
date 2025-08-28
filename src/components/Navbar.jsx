@@ -5,7 +5,7 @@ function Navbar(){
           <li className="inline float-left">
             <a
               className="block py-3.5 px-5 text-white no-underline transition-colors duration-300 hover:bg-gray-800"
-              href="default.asp"
+              href="#header"
             >
               Introduction
             </a>
@@ -13,15 +13,15 @@ function Navbar(){
           <li className="inline float-left">
             <a
               className="block py-3.5 px-5 text-white no-underline transition-colors duration-300 hover:bg-gray-800"
-              href="default.asp"
+              href="#about"
             >
-              About 
+              About
             </a>
           </li>
           <li className="inline float-left">
             <a
               className="block py-3.5 px-5 text-white no-underline transition-colors duration-300 hover:bg-gray-800"
-              href="default.asp"
+              href="#skills"
             >
               Skills
             </a>
@@ -29,7 +29,7 @@ function Navbar(){
           <li className="inline float-left">
             <a
               className="block py-3.5 px-5 text-white no-underline transition-colors duration-300 hover:bg-gray-800"
-              href="default.asp"
+              href="#projects"
             >
               Projects
             </a>
@@ -37,7 +37,7 @@ function Navbar(){
           <li className="inline float-left">
             <a
               className="block py-3.5 px-5 text-white no-underline transition-colors duration-300 hover:bg-gray-800"
-              href="contact.asp"
+              href="#contact"
             >
               Contact
             </a>

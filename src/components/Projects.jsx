@@ -16,6 +16,7 @@ function Projects() {
 
   return (
     <div
+      id="projects"
       className="relative bg-gray-900 py-10"
       style={{ backgroundColor: "#635e5e" }}
     >

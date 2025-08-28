@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 function About() {
   return (
     <section
+      id="about"
       className=" bg-gray-500 py-25 px-5 max-w-8xl mx-auto"
       style={{ backgroundColor: "#635e5e" }}
     >

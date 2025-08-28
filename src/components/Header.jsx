@@ -1,6 +1,7 @@
 function Header(){
   return (
     <header
+      id="header"
       className="bg-gray-900 px-5 py-15 text-center"
       style={{ backgroundColor: "#635e5e" }}
     >
