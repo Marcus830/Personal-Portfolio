@@ -2,8 +2,7 @@ function Header(){
   return (
     <header
       id="header"
-      className="bg-gray-900 px-5 py-15 text-center"
-      style={{ backgroundColor: "#635e5e" }}
+      className="px-5 py-15 text-center"
     >
       <div className="max-w-xl mx-auto p-10 border-2 border-gray-700 rounded-lg bg-black bg-opacity-30">
         <h1

@@ -15,11 +15,7 @@ function Projects() {
   };
 
   return (
-    <div
-      id="projects"
-      className="relative bg-gray-900 py-10"
-      style={{ backgroundColor: "#635e5e" }}
-    >
+    <div id="projects" className="relative py-10">
       {/* Carousel container */}
       <div className="overflow-hidden max-w-3xl mx-auto">
         {/* Track */}
@@ -35,15 +31,23 @@ function Projects() {
               className="flex-shrink-0 w-full flex justify-center"
             >
               {/* Flip Card */}
-              <div className="relative perspective-1000 w-80 h-80">
+              <div className="relative perspective-1000 w-100 h-100">
                 <div className="absolute inset-0 border-2 rounded-lg shadow-md transition-transform duration-700 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]">
                   {/* Front */}
-                  <div className="absolute inset-0 bg-white backface-hidden rounded-lg p-4">
-                    <h1>Project {index + 1}</h1>
-                    <h2>John Doe</h2>
-                    <p>Short description: A brief overview of the project.</p>
-                    <p>Tech Stack: React, Node.js, Express</p>
-                    <p>Links: [GitHub](#) | [Live Demo](#)</p>
+                  <div className="absolute inset-0 bg-black backface-hidden rounded-lg p-4">
+                    <h1 className="text-xl font-bold text-center">Project {index + 1}</h1>
+                    <h2 className="text-gray-300 text-center">Inmate Management System</h2>
+                    <img
+                      src="inmate management page.png"
+                      alt="Inmate Management System"
+                      className="rounded-lg shadow-lg mx-auto mb-4"
+                    />
+                    <p className="p-2 border-2 border-white/30 rounded-xl bg-white/10">
+                      Short description: A brief overview of the project.
+                    </p>
+                    <p className="p-2 border-2 border-white/30 rounded-xl bg-white/10">
+                      Tech Stack: React, Node.js, Express
+                    </p>
                   </div>
                   {/* Back */}
                   <div className="absolute inset-0 bg-red-500 backface-hidden rotate-y-180 rounded-lg p-4 text-white">
@@ -66,13 +70,13 @@ function Projects() {
       <div className="flex justify-between max-w-3xl mx-auto mt-6">
         <button
           onClick={prevSlide}
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className="bg-black text-white px-4 py-2 rounded"
         >
           Prev
         </button>
         <button
           onClick={nextSlide}
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className="bg-black text-white px-4 py-2 rounded"
         >
           Next
         </button>
