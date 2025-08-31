@@ -4,7 +4,7 @@ function About() {
   return (
     <section
       id="about"
-      className="py-25 px-5 max-w-8xl mx-auto"
+      className="py-20 px-5 max-w-8xl mx-auto"
     >
       {/* Title */}
       <motion.h1

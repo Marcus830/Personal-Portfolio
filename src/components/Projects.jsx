@@ -32,32 +32,40 @@ function Projects() {
             >
               {/* Flip Card */}
               <div className="relative perspective-1000 w-100 h-100">
-                <div className="absolute inset-0 border-2 rounded-lg shadow-md transition-transform duration-700 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]">
+                <div className="absolute inset-0 border-2 rounded-lg shadow-xl transition-transform duration-700 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]">
                   {/* Front */}
                   <div className="absolute inset-0 bg-black backface-hidden rounded-lg p-4">
-                    <h1 className="text-xl font-bold text-center">Project {index + 1}</h1>
-                    <h2 className="text-gray-300 text-center">Inmate Management System</h2>
+                    <h1 className="text-xl font-bold text-center">
+                      Project {index + 1}
+                    </h1>
+                    <h2 className="text-gray-300 text-center">
+                      Inmate Management System
+                    </h2>
                     <img
                       src="inmate management page.png"
                       alt="Inmate Management System"
                       className="rounded-lg shadow-lg mx-auto mb-4"
                     />
-                    <p className="p-2 border-2 border-white/30 rounded-xl bg-white/10">
+                    <p className="m-2 p-2 border-2 border-white/30 rounded-xl bg-white/10">
                       Short description: A brief overview of the project.
                     </p>
-                    <p className="p-2 border-2 border-white/30 rounded-xl bg-white/10">
+                    <p className="m-2 p-2 border-2 border-white/30 rounded-xl bg-white/10">
                       Tech Stack: React, Node.js, Express
                     </p>
                   </div>
                   {/* Back */}
-                  <div className="absolute inset-0 bg-red-500 backface-hidden rotate-y-180 rounded-lg p-4 text-white">
-                    <p>John Doe</p>
-                    <p>
+                  <div className="absolute inset-0 bg-zinc-700 backface-hidden rotate-y-180 rounded-lg p-2 text-white">
+                    <p className="text-2xl text-gray-300 text-center">John Doe</p>
+                    <p className="m-2 p-2 border-2 border-gray-300 rounded-xl bg-white/10">
                       The problem: "Description of the problem the project aims
                       to solve."
                     </p>
-                    <p>Your solution: "Description of your solution."</p>
-                    <p>Outcome: "Result of your solution."</p>
+                    <p className="m-2 p-2 border-2 border-gray-300 rounded-xl bg-white/10">
+                      Your solution: "Description of your solution."
+                    </p>
+                    <p className="m-2 p-2 border-2 border-gray-300 rounded-xl bg-white/10">
+                      Outcome: "Result of your solution."
+                    </p>
                   </div>
                 </div>
               </div>

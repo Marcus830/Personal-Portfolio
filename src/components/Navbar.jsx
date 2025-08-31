@@ -1,8 +1,8 @@
 function Navbar(){
     return (
       <nav>
-        <ul className="list-none m-0 p-0 overflow-hidden bg-black">
-          <li className="inline float-left">
+        <ul className="text-center m-0 p-0 overflow-hidden bg-black">
+          <li className="inline-block">
             <a
               className="block py-3.5 px-5 text-white no-underline transition-colors duration-300 hover:bg-gray-800"
               href="#header"
@@ -10,7 +10,7 @@ function Navbar(){
               Introduction
             </a>
           </li>
-          <li className="inline float-left">
+          <li className="inline-block">
             <a
               className="block py-3.5 px-5 text-white no-underline transition-colors duration-300 hover:bg-gray-800"
               href="#about"
@@ -18,7 +18,7 @@ function Navbar(){
               About
             </a>
           </li>
-          <li className="inline float-left">
+          <li className="inline-block">
             <a
               className="block py-3.5 px-5 text-white no-underline transition-colors duration-300 hover:bg-gray-800"
               href="#skills"
@@ -26,7 +26,7 @@ function Navbar(){
               Skills
             </a>
           </li>
-          <li className="inline float-left">
+          <li className="inline-block">
             <a
               className="block py-3.5 px-5 text-white no-underline transition-colors duration-300 hover:bg-gray-800"
               href="#projects"
@@ -34,7 +34,7 @@ function Navbar(){
               Projects
             </a>
           </li>
-          <li className="inline float-left">
+          <li className="inline-block">
             <a
               className="block py-3.5 px-5 text-white no-underline transition-colors duration-300 hover:bg-gray-800"
               href="#contact"
