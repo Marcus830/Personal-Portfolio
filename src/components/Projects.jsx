@@ -3,8 +3,47 @@ import { useState } from "react";
 function Projects() {
   const [current, setCurrent] = useState(0); // track the active slide
 
-  // Example: 3 cards (could map from an array instead)
-  const projects = [1, 2, 3];
+  // Array of unique project objects
+  const projects = [
+    {
+      title: "Inmate Management System",
+      subtitle: "A system for managing inmate records",
+      image: "inmate management page.png",
+      description:
+        "A web app to manage inmate data, track records, and generate reports.",
+      tech: "HTML/CSS/Javascript, Node.js, Express.js, MySQL",
+      author: "John Doe",
+      problem: "Manual inmate record keeping is error-prone and inefficient.",
+      solution: "A digital system to automate and secure inmate management.",
+      outcome: "Improved efficiency and reduced errors in record keeping.",
+    },
+    {
+      title: "Complaint Management System",
+      subtitle: "A system for managing complaints",
+      image: "assets/react.svg",
+      description:
+        "A modern web app to handle customer complaints and feedback.",
+      tech: "ASP.NET, C#, SQL PostgreSQL, Docker, GitHub Actions",
+      author: "Marcus",
+      problem:
+        "Organizations often struggle with handling customer or employee complaints efficiently",
+      solution:
+        "developed a system enabling efficient complaint tracking and resolution.",
+      outcome:
+        "Delivered a working full-stack application that demonstrates real-world problem solving skills.",
+    },
+    {
+      title: "E-commerce store (CLI)",
+      subtitle: "Backend API for an online store",
+      image: "",
+      description: "RESTful API for managing products, orders, and users.",
+      tech: "Node.js, Express, MongoDB",
+      author: "Jane Smith",
+      problem: "Needed a scalable backend for an e-commerce platform.",
+      solution: "Developed a robust API with authentication and CRUD features.",
+      outcome: "Enabled rapid development of the frontend and mobile apps.",
+    },
+  ];
 
   const nextSlide = () => {
     setCurrent((prev) => (prev + 1) % projects.length);
@@ -17,54 +56,56 @@ function Projects() {
   return (
     <div id="projects" className="relative py-10">
       {/* Carousel container */}
-      <div className="overflow-hidden max-w-3xl mx-auto">
+      <div className="overflow-hidden max-w-3xl mx-auto relative">
         {/* Track */}
         <div
-          className="flex transition-transform duration-700"
+          className="flex transition-transform duration-700 ease-in-out" 
           style={{
             transform: `translateX(-${current * 100}%)`,
           }}
         >
-          {projects.map((_, index) => (
+          {projects.map((project, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-full flex justify-center"
+              className="w-full flex-shrink-0 flex justify-center px-4"
+              style={{ width: "100%" }}
             >
               {/* Flip Card */}
-              <div className="relative perspective-1000 w-100 h-100">
-                <div className="absolute inset-0 border-2 rounded-lg shadow-xl transition-transform duration-700 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]">
+              <div className="relative w-full max-w-md perspective-1000">
+                <div className="relative border-2 rounded-lg shadow-xl transition-transform duration-700 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)] h-[450px]">
                   {/* Front */}
-                  <div className="absolute inset-0 bg-black backface-hidden rounded-lg p-4">
+                  <div className="absolute inset-0 bg-black backface-hidden rounded-lg p-4 flex flex-col">
                     <h1 className="text-xl font-bold text-center">
-                      Project {index + 1}
+                      {project.title}
                     </h1>
                     <h2 className="text-gray-300 text-center">
-                      Inmate Management System
+                      {project.subtitle}
                     </h2>
                     <img
-                      src="inmate management page.png"
-                      alt="Inmate Management System"
-                      className="rounded-lg shadow-lg mx-auto mb-4"
+                      src={project.image}
+                      alt={project.title}
+                      className="rounded-lg shadow-lg mx-auto my-4 max-h-40"
                     />
                     <p className="m-2 p-2 border-2 border-white/30 rounded-xl bg-white/10">
-                      Short description: A brief overview of the project.
+                      {project.description}
                     </p>
                     <p className="m-2 p-2 border-2 border-white/30 rounded-xl bg-white/10">
-                      Tech Stack: React, Node.js, Express
+                      Tech: {project.tech}
                     </p>
                   </div>
                   {/* Back */}
-                  <div className="absolute inset-0 bg-zinc-700 backface-hidden rotate-y-180 rounded-lg p-2 text-white">
-                    <p className="text-2xl text-gray-300 text-center">John Doe</p>
-                    <p className="m-2 p-2 border-2 border-gray-300 rounded-xl bg-white/10">
-                      The problem: "Description of the problem the project aims
-                      to solve."
+                  <div className="absolute inset-0 bg-zinc-700 backface-hidden rotate-y-180 rounded-lg p-4 text-white flex flex-col">
+                    <p className="text-2xl text-gray-300 text-center">
+                      {project.author}
                     </p>
                     <p className="m-2 p-2 border-2 border-gray-300 rounded-xl bg-white/10">
-                      Your solution: "Description of your solution."
+                      Problem: {project.problem}
                     </p>
                     <p className="m-2 p-2 border-2 border-gray-300 rounded-xl bg-white/10">
-                      Outcome: "Result of your solution."
+                      Solution: {project.solution}
+                    </p>
+                    <p className="m-2 p-2 border-2 border-gray-300 rounded-xl bg-white/10">
+                      Outcome: {project.outcome}
                     </p>
                   </div>
                 </div>
@@ -72,22 +113,33 @@ function Projects() {
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Navigation buttons */}
-      <div className="flex justify-between max-w-3xl mx-auto mt-6">
+        {/* Navigation buttons (overlay style) */}
         <button
           onClick={prevSlide}
-          className="bg-black text-white px-4 py-2 rounded"
+          className="absolute top-1/2 left-2 -translate-y-1/2 bg-black/70 text-white px-3 py-2 rounded-full hover:bg-black"
         >
-          Prev
+          ◀
         </button>
         <button
           onClick={nextSlide}
-          className="bg-black text-white px-4 py-2 rounded"
+          className="absolute top-1/2 right-2 -translate-y-1/2 bg-black/70 text-white px-3 py-2 rounded-full hover:bg-black"
         >
-          Next
+          ▶
         </button>
+
+        {/* Indicators */}
+        <div className="flex justify-center mt-4 space-x-2">
+          {projects.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrent(index)}
+              className={`w-3 h-3 rounded-full ${
+                current === index ? "bg-black" : "bg-gray-400"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
